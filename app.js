@@ -6,7 +6,7 @@ const path = require('path');
 
 // Tell Express to use EJS and look in the 'public' folder for CSS/Images
 app.set('view engine', 'ejs');
-app.use('/majorairhvactest',express.static(path.join(__dirname'public'));
+app.use('/majorairhvactest',express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 
 // Main Route
