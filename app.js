@@ -10,12 +10,12 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 
 // Main Route
-app.get('/', (req, res) => {
+app.get('/majorairhvactest', (req, res) => {
     res.render('index', { success: req.query.success });
 });
 
 // Handle Form Submission
-app.post('/contact', async (req, res) => {
+app.post('/majorairhvactest/contact', async (req, res) => {
     // Extract the new fields
     const { customerName, email, phone, preferredMethod, message } = req.body;
 
@@ -45,15 +45,15 @@ ${message}`
 
     try {
         await transporter.sendMail(mailOptions);
-        res.redirect('/?success=true#contact'); 
+        res.redirect('/majorairhvactest/?success=true#contact'); 
     } catch (error) {
         console.error("Email Error:", error);
-        res.redirect('/?success=false#contact');
+        res.redirect('/majorairhvactest/?success=false#contact');
     }
 });
 
 
 const PORT = 3000;
 app.listen(PORT, () => {
-    console.log(`HVAC site live at http://localhost:${PORT}`);
+    console.log(`HVAC site live at http://localhost:${PORT}/majorairhvactest`);
 });
